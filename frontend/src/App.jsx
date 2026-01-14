@@ -27,7 +27,7 @@ function App() {
     ]
 
     return (
-        <div className="bg-background text-white h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar">
+        <div className="bg-background text-white h-[100dvh] w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar overscroll-y-contain">
 
             {/* Navigation Dots */}
             <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-50">

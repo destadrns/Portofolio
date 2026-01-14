@@ -22,13 +22,13 @@ const Hero = () => {
                         key={i}
                         className="absolute bg-cyan-500/20 rounded-full blur-xl"
                         initial={{
-                            x: Math.random() * window.innerWidth,
-                            y: Math.random() * window.innerHeight,
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
                             scale: Math.random() * 0.5 + 0.5
                         }}
                         animate={{
-                            y: [null, Math.random() * window.innerHeight],
-                            x: [null, Math.random() * window.innerWidth]
+                            top: [null, `${Math.random() * 100}%`],
+                            left: [null, `${Math.random() * 100}%`]
                         }}
                         transition={{
                             duration: 20 + Math.random() * 20,
