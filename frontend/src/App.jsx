@@ -46,7 +46,7 @@ function App() {
                 <section
                     key={index}
                     id={`section-${index}`}
-                    className={`w-full snap-start snap-always relative flex justify-center overflow-x-hidden
+                    className={`w-full snap-start snap-always relative flex justify-center overflow-x-hidden z-10
                         ${index === 0 ? 'min-h-screen md:h-screen' : 'min-h-screen py-16 md:py-0 items-center'} 
                     `}
                     onMouseEnter={() => setActiveSection(index)} // Simple detection, can be improved with IntersectionObserver
@@ -55,7 +55,12 @@ function App() {
                 </section>
             ))}
 
-            {/* Persistent Background Elements can go here (Particles, etc) */}
+            {/* Persistent Ambient Background */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[100px] animate-pulse" />
+                <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+                <div className="absolute top-[40%] left-[40%] w-[300px] h-[300px] bg-blue-500/5 rounded-full blur-[80px]" />
+            </div>
         </div>
     )
 }
