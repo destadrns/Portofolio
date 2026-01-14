@@ -50,7 +50,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-cyan-400 font-mono mb-4 tracking-wider"
+                    className="text-cyan-400 font-mono mb-2 md:mb-4 text-sm md:text-base tracking-wider"
                 >
                     HALO, SAYA
                 </motion.p>
@@ -59,16 +59,16 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4, type: "spring" }}
-                    className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400"
+                    className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400 leading-tight"
                 >
-                    DESTA ADRIYAN <span className="text-primary">SAPUTRA</span>
+                    DESTA ADRIYAN <span className="text-primary block md:inline">SAPUTRA</span>
                 </motion.h1>
 
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.6 }}
-                    className="h-auto md:h-12 mb-8 text-base md:text-2xl text-gray-400 font-light flex items-center justify-center gap-2"
+                    className="h-auto md:h-12 mb-6 md:mb-8 text-sm md:text-2xl text-gray-400 font-light flex items-center justify-center gap-2"
                 >
                     <span className="typing-effect">Ai Engineer & Data Analyst</span>
                 </motion.div>
@@ -77,17 +77,17 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 }}
-                    className="flex flex-col md:flex-row gap-4 justify-center items-center"
+                    className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center w-full px-4"
                 >
                     <a
                         href="https://www.linkedin.com/in/dstaasptra?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative px-8 py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all overflow-hidden"
+                        className="group relative w-full sm:w-auto px-6 py-2.5 md:px-8 md:py-3 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 transition-all overflow-hidden flex justify-center"
                     >
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <span className="relative flex items-center gap-2 font-medium">
-                            <Linkedin size={18} /> LinkedIn
+                        <span className="relative flex items-center gap-2 font-medium text-sm md:text-base">
+                            <Linkedin size={16} className="md:w-[18px] md:h-[18px]" /> LinkedIn
                         </span>
                     </a>
 
@@ -95,10 +95,10 @@ const Hero = () => {
                         href="https://github.com/destadrns"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group relative px-8 py-3 bg-primary hover:bg-blue-600 rounded-full transition-all shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7)]"
+                        className="group relative w-full sm:w-auto px-6 py-2.5 md:px-8 md:py-3 bg-primary hover:bg-blue-600 rounded-full transition-all shadow-[0_0_20px_rgba(59,130,246,0.5)] hover:shadow-[0_0_30px_rgba(59,130,246,0.7)] flex justify-center"
                     >
-                        <span className="flex items-center gap-2 font-medium">
-                            <Github size={18} /> GitHub
+                        <span className="flex items-center gap-2 font-medium text-sm md:text-base">
+                            <Github size={16} className="md:w-[18px] md:h-[18px]" /> GitHub
                         </span>
                     </a>
                 </motion.div>
