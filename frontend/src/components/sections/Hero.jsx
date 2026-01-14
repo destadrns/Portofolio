@@ -8,11 +8,12 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 300], [1, 0])
 
     return (
-        <div className="relative w-full min-h-full flex items-center justify-center overflow-hidden">
+        <div className="relative w-full min-h-[100dvh] flex items-center justify-center overflow-hidden">
             {/* Background Gradient & Particles */}
             <motion.div
                 className="absolute inset-0 z-0 bg-gradient-to-b from-blue-900/10 via-purple-900/10 to-transparent"
-                style={{ y, opacity }}
+                animate={{ opacity: [0.5, 0.8, 0.5] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             />
             {/* Extra coverage for mobile bounce/address bar */}
             <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background to-transparent z-0" />

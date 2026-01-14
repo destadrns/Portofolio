@@ -46,7 +46,7 @@ function App() {
                 <section
                     key={index}
                     id={`section-${index}`}
-                    className={`w-full snap-start snap-always relative flex items-center justify-center overflow-x-hidden
+                    className={`w-full snap-start snap-always relative flex justify-center overflow-x-hidden
                         ${index === 0 ? 'min-h-screen md:h-screen' : 'min-h-screen py-16 md:py-0'} 
                     `}
                     onMouseEnter={() => setActiveSection(index)} // Simple detection, can be improved with IntersectionObserver
