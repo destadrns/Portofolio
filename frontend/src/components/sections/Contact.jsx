@@ -32,7 +32,7 @@ const Contact = () => {
     }
 
     return (
-        <div className="w-full max-w-2xl px-4 text-center max-h-[85vh] overflow-y-auto no-scrollbar py-4">
+        <div className="w-full max-w-2xl px-4 text-center py-4">
             <h2 className="text-4xl font-bold mb-4">Hubungi Saya</h2>
             <p className="text-gray-400 mb-8">Punya proyek impian atau sekadar ingin menyapa?</p>
 

@@ -14,7 +14,7 @@ const skills = [
 
 const Skills = () => {
     return (
-        <div className="w-full max-w-6xl px-4 flex flex-col items-center max-h-[85vh] overflow-y-auto no-scrollbar py-4">
+        <div className="w-full max-w-6xl px-4 flex flex-col items-center py-4">
             <motion.h2
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
