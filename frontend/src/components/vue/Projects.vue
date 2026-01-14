@@ -1,0 +1,72 @@
+<template>
+  <div class="h-full w-full flex flex-col justify-center px-8 relative overflow-hidden">
+    <h2 class="text-4xl font-bold mb-8 text-center text-white z-10">Proyek Pilihan</h2>
+    
+    <div class="projects-container flex gap-8 overflow-x-auto no-scrollbar py-8 px-4" ref="container">
+      <div 
+        v-for="(project, index) in projects" 
+        :key="index"
+        class="project-card min-w-[85vw] md:min-w-[450px] h-[300px] bg-white/5 border border-white/10 rounded-xl p-6 flex flex-col justify-between hover:bg-white/10 transition-all duration-300 group cursor-pointer"
+      >
+        <div>
+           <div class="h-32 mb-4 bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden relative">
+              <div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <span class="text-white font-bold tracking-widest">LIHAT PROYEK</span>
+              </div>
+           </div>
+           <h3 class="text-xl font-bold text-cyan-400 mb-2">{{ project.title }}</h3>
+           <p class="text-sm text-gray-400 line-clamp-2">{{ project.desc }}</p>
+        </div>
+        <div class="flex gap-2 mt-4">
+           <span v-for="tag in project.tags" :key="tag" class="px-2 py-1 text-xs rounded-full bg-white/5 border border-white/5 text-gray-300">
+             {{ tag }}
+           </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const container = ref(null);
+
+const projects = ref([
+  { title: 'Platform E-Commerce', desc: 'Platform belanja lengkap dengan inventaris real-time.', tags: ['Vue', 'Node', 'MongoDB'] },
+  { title: 'Dashboard AI', desc: 'Dashboard analitik yang didukung oleh model pembelajaran mesin.', tags: ['React', 'Python', 'D3.js'] },
+  { title: 'Jejaring Sosial', desc: 'Interaksi obrolan dan umpan real-time.', tags: ['Next.js', 'Socket.io', 'Redis'] },
+  { title: 'Dompet Kripto', desc: 'Antarmuka dompet blockchain yang aman.', tags: ['Web3', 'Solidity', 'Vue'] },
+]);
+
+// Horizontal Scroll Logic
+const handleScroll = (e) => {
+  if (container.value) {
+    if (e.deltaY !== 0) {
+      e.preventDefault();
+      container.value.scrollLeft += e.deltaY;
+    }
+  }
+};
+
+onMounted(() => {
+  const el = container.value;
+  if (el) {
+    el.addEventListener('wheel', handleScroll, { passive: false });
+  }
+});
+
+onUnmounted(() => {
+  const el = container.value;
+  if (el) {
+    el.removeEventListener('wheel', handleScroll);
+  }
+});
+</script>
+
+<style scoped>
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+</style>
