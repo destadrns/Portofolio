@@ -42,16 +42,17 @@ function App() {
             </div>
 
             {/* Sections */}
-            <section
-                key={index}
-                id={`section-${index}`}
-                className={`w-full snap-start snap-always relative flex items-center justify-center overflow-hidden
+            {sections.map((section, index) => (
+                <section
+                    key={index}
+                    id={`section-${index}`}
+                    className={`w-full snap-start snap-always relative flex items-center justify-center overflow-hidden
                         ${index === 0 ? 'h-screen' : 'min-h-screen py-16 md:py-0'} 
                     `}
-                onMouseEnter={() => setActiveSection(index)} // Simple detection, can be improved with IntersectionObserver
-            >
-                {section.component}
-            </section>
+                    onMouseEnter={() => setActiveSection(index)} // Simple detection, can be improved with IntersectionObserver
+                >
+                    {section.component}
+                </section>
             ))}
 
             {/* Persistent Background Elements can go here (Particles, etc) */}
