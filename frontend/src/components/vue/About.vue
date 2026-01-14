@@ -1,8 +1,8 @@
 <template>
   <div class="h-full w-full flex items-center justify-center p-4 md:p-8">
-    <div class="glass-panel p-6 md:p-8 rounded-2xl max-w-4xl w-full flex flex-col md:flex-row gap-8 items-center bg-white/5 backdrop-blur-lg border border-white/10 shadow-2xl max-h-[85vh] overflow-y-auto no-scrollbar">
+    <div class="glass-panel p-6 md:p-8 rounded-2xl max-w-4xl w-full flex flex-col md:flex-row gap-8 items-center bg-white/5 backdrop-blur-lg border border-white/10 shadow-2xl">
       <div class="avatar-container w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/30 relative flex-shrink-0">
-        <div class="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 opacity-50 animate-pulse"></div>
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary to-purple-500 opacity-20 animate-pulse z-0"></div>
         <img src="/images/profile.jpg" alt="Avatar" class="w-full h-full object-cover relative z-10" />
       </div>
       <div class="text-content flex-1 text-justify">
