@@ -27,7 +27,7 @@ function App() {
     ]
 
     return (
-        <div className="bg-background text-white h-screen w-full overflow-y-scroll md:snap-y md:snap-mandatory scroll-smooth no-scrollbar">
+        <div className="bg-background text-white h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar">
 
             {/* Navigation Dots */}
             <div className="hidden md:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-50">
@@ -46,7 +46,9 @@ function App() {
                 <section
                     key={index}
                     id={`section-${index}`}
-                    className="min-h-screen md:h-screen w-full md:snap-start relative flex items-center justify-center overflow-x-hidden md:overflow-hidden py-10 md:py-0"
+                    className={`w-full snap-start relative flex items-center justify-center overflow-hidden
+                        ${index === 0 ? 'h-screen' : 'min-h-screen py-16 md:py-0'} 
+                    `}
                     onMouseEnter={() => setActiveSection(index)} // Simple detection, can be improved with IntersectionObserver
                 >
                     {section.component}

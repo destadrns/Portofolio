@@ -50,7 +50,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-cyan-400 font-mono mb-2 md:mb-4 text-sm md:text-base tracking-wider"
+                    className="text-cyan-400 font-mono mb-2 text-xs md:text-base tracking-wider"
                 >
                     HALO, SAYA
                 </motion.p>
@@ -59,7 +59,7 @@ const Hero = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.4, type: "spring" }}
-                    className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400 leading-tight"
+                    className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl font-bold mb-3 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-100 to-gray-400 leading-tight"
                 >
                     DESTA ADRIYAN <span className="text-primary block md:inline">SAPUTRA</span>
                 </motion.h1>
