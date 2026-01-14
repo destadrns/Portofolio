@@ -3,8 +3,13 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-white overflow-hidden;
+    @apply bg-background text-white;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
