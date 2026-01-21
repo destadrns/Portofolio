@@ -2,7 +2,7 @@
   <div class="h-full w-full flex flex-col justify-center px-8 relative overflow-hidden">
     <h2 class="text-4xl font-bold mb-8 text-center text-white z-10">Proyek Pilihan</h2>
     
-    <div class="projects-container flex gap-4 md:gap-8 overflow-x-auto no-scrollbar py-4 md:py-8 px-4 w-full">
+    <div class="projects-container flex gap-4 md:gap-8 overflow-x-auto py-4 md:py-8 px-4 w-full">
       <a 
         v-for="(project, index) in projects" 
         :key="index"
