@@ -57,13 +57,8 @@ const projects = ref([
 // Horizontal Scroll Logic removed to prevent blocking vertical scroll
 // Users can use Shift+Scroll or Touchpad or Touch to scroll horizontally
 
-onMounted(() => {
-  // No custom scroll listener needed
-});
-
-onUnmounted(() => {
-  // Cleanup
-});
+// Horizontal Scroll Logic removed to prevent blocking vertical scroll
+// Users can use Shift+Scroll or Touchpad or Touch to scroll horizontally
 </script>
 
 <style scoped>
