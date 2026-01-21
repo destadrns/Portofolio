@@ -1,27 +1,31 @@
 import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Send, CheckCircle, AlertCircle } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Send, CheckCircle, AlertCircle, Loader, ShieldCheck } from 'lucide-react'
 import axios from 'axios'
 
 const Contact = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
     const [status, setStatus] = useState('idle')
 
-    // Captcha State
-    const [captcha, setCaptcha] = useState({
-        num1: Math.floor(Math.random() * 10),
-        num2: Math.floor(Math.random() * 10)
-    })
-    const [userCaptcha, setUserCaptcha] = useState('')
+    // Visual Captcha State
+    const [captchaStatus, setCaptchaStatus] = useState('idle') // idle, verifying, success
+
+    const handleCaptchaClick = () => {
+        if (captchaStatus === 'success') return
+        setCaptchaStatus('verifying')
+        // Simulate network verification
+        setTimeout(() => {
+            setCaptchaStatus('success')
+        }, 1500)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         // Captcha Verification
-        if (parseInt(userCaptcha) !== captcha.num1 + captcha.num2) {
-            setForm(prev => ({ ...prev, error: 'Hitungan salah, coba lagi!' }))
+        if (captchaStatus !== 'success') {
+            setForm(prev => ({ ...prev, error: 'Silakan verifikasi bahwa Anda bukan robot.' }))
             setStatus('error')
-            // Reset error msg after 2s
             setTimeout(() => setStatus('idle'), 2000)
             return
         }
@@ -37,12 +41,7 @@ const Contact = () => {
 
             setStatus('success')
             setForm({ name: '', email: '', message: '' })
-            setUserCaptcha('')
-            // Regenerate Captcha
-            setCaptcha({
-                num1: Math.floor(Math.random() * 10),
-                num2: Math.floor(Math.random() * 10)
-            })
+            setCaptchaStatus('idle')
 
             setTimeout(() => setStatus('idle'), 3000)
         } catch (err) {
@@ -96,21 +95,31 @@ const Contact = () => {
                     />
                 </div>
 
-                {/* Verification */}
-                <div className="flex flex-col gap-2">
-                    <label className="text-sm font-medium text-gray-400">Verifikasi (Bukan Robot)</label>
-                    <div className="flex items-center gap-4">
-                        <span className="text-white font-bold text-lg bg-white/10 px-4 py-2 rounded-lg select-none">
-                            {captcha.num1} + {captcha.num2} = ?
-                        </span>
-                        <input
-                            type="number"
-                            required
-                            className="bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-primary transition-colors w-24 text-center"
-                            placeholder="Hasil"
-                            value={userCaptcha}
-                            onChange={(e) => setUserCaptcha(e.target.value)}
-                        />
+                {/* Visual Captcha Clone */}
+                <div
+                    className="w-full md:w-fit bg-[#f9f9f9] text-black p-3 rounded-sm border border-[#d3d3d3] shadow-sm flex items-center gap-4 select-none cursor-pointer hover:bg-[#f0f0f0] transition-colors"
+                    onClick={handleCaptchaClick}
+                >
+                    <div className={`w-7 h-7 bg-white border-2 rounded-sm flex items-center justify-center transition-all ${captchaStatus === 'success' ? 'border-transparent' : 'border-[#c1c1c1]'}`}>
+                        {captchaStatus === 'idle' && (
+                            <div className="w-full h-full"></div>
+                        )}
+                        {captchaStatus === 'verifying' && (
+                            <motion.div
+                                animate={{ rotate: 360 }}
+                                transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                            >
+                                <Loader size={16} className="text-blue-500" />
+                            </motion.div>
+                        )}
+                        {captchaStatus === 'success' && (
+                            <CheckCircle size={28} className="text-green-500" fill="white" />
+                        )}
+                    </div>
+                    <span className="text-sm font-medium text-[#2d2d2d] mr-8">I'm not a robot</span>
+                    <div className="flex flex-col items-center justify-center ml-auto border-l border-gray-300 pl-3 md:pl-0">
+                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="logo" className="w-6 h-6 opacity-70 mb-1" />
+                        <span className="text-[10px] text-gray-500">reCAPTCHA</span>
                     </div>
                 </div>
 
