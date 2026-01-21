@@ -9,6 +9,13 @@ const education = [
         institution: 'Universitas Amikom Yogyakarta',
         year: '2023 - Sekarang',
         icon: <GraduationCap size={24} />
+    },
+    {
+        type: 'Sekolah Menengah',
+        title: 'MIPA',
+        institution: 'SMA Negeri 1 Depok',
+        year: '2020 - 2023',
+        icon: <GraduationCap size={24} />
     }
 ]
 
