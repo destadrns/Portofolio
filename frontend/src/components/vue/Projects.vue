@@ -33,10 +33,9 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const container = ref(null);
 
 const projects = ref([
-  { title: 'Platform E-Commerce', desc: 'Platform belanja lengkap dengan inventaris real-time.', tags: ['Vue', 'Node', 'MongoDB'] },
-  { title: 'Dashboard AI', desc: 'Dashboard analitik yang didukung oleh model pembelajaran mesin.', tags: ['React', 'Python', 'D3.js'] },
-  { title: 'Jejaring Sosial', desc: 'Interaksi obrolan dan umpan real-time.', tags: ['Next.js', 'Socket.io', 'Redis'] },
-  { title: 'Dompet Kripto', desc: 'Antarmuka dompet blockchain yang aman.', tags: ['Web3', 'Solidity', 'Vue'] },
+  { title: 'Smart Home Analysis', desc: 'Exploratory Data Analysis dan pemodelan prediktif untuk konsumsi energi rumah tangga.', tags: ['Python', 'Pandas', 'Scikit-learn'] },
+  { title: 'ETH Price Prediction', desc: 'Analisis tren harga Ethereum menggunakan Gradient Boosting dan evaluasi model Machine Learning.', tags: ['Python', 'AI', 'Gradient Boosting'] },
+  { title: 'Rentaliqra App', desc: 'Aplikasi web front-end dengan desain responsif dan interaksi pengguna yang dinamis.', tags: ['HTML', 'CSS', 'JavaScript'] },
 ]);
 
 // Horizontal Scroll Logic

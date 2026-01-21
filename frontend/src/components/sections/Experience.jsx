@@ -4,25 +4,25 @@ import { Briefcase } from 'lucide-react'
 
 const experiences = [
     {
-        role: 'Full Stack Engineer',
-        company: 'TechCorp Solutions',
-        period: '2023 - Sekarang',
-        desc: 'Memimpin tim yang terdiri dari 5 pengembang membangun produk SaaS yang dapat diskalakan. Mengimplementasikan arsitektur layanan mikro yang mengurangi latensi hingga 40%.',
-        tech: ['React', 'Node.js', 'AWS', 'Docker']
+        role: 'Machine Learning Engineer',
+        company: 'Project: ETH Price Prediction',
+        period: '2024',
+        desc: 'Mengimplementasikan algoritma Gradient Boosting untuk analisis tren harga kripto. Melakukan tuning hyperparameter dan evaluasi metrik model untuk memastikan validitas prediksi, serta analisis teknikal mendalam.',
+        tech: ['Python', 'Scikit-learn', 'Pandas', 'Gradient Boosting']
+    },
+    {
+        role: 'Data Analyst',
+        company: 'Project: Smart Home Energy',
+        period: '2023',
+        desc: 'Melaksanakan Exploratory Data Analysis (EDA) dan preprocessing data kompleks. Membangun model prediktif untuk pola konsumsi energi menggunakan ekosistem Python (NumPy, Pandas).',
+        tech: ['Python', 'NumPy', 'Jupyter Notebook', 'Data Analytics']
     },
     {
         role: 'Frontend Developer',
-        company: 'Creative Agency',
-        period: '2021 - 2023',
-        desc: 'Mengembangkan situs web pemenang penghargaan untuk klien Fortune 500. Mengkhususkan diri dalam interaksi WebGL dan pengoptimalan kinerja.',
-        tech: ['Vue.js', 'GSAP', 'WebGL', 'Three.js']
-    },
-    {
-        role: 'Junior Web Developer',
-        company: 'StartUp Inc',
-        period: '2019 - 2021',
-        desc: 'Berkolaborasi pada dasbor produk utama. Mem refactor basis kode lama menjadi React modern.',
-        tech: ['React', 'Redux', 'SASS']
+        company: 'Project: Rentaliqra',
+        period: '2023',
+        desc: 'Mengembangkan antarmuka web responsif dan interaktif (User Interaction). Menerapkan best practices dalam struktur HTML, styling CSS, dan logika JavaScript untuk pengalaman pengguna yang optimal.',
+        tech: ['HTML', 'CSS', 'JavaScript', 'Responsive Design']
     }
 ]
 
