@@ -57,27 +57,15 @@ const projects = ref([
 ]);
 
 // Horizontal Scroll Logic
-const handleScroll = (e) => {
-  if (container.value) {
-    if (e.deltaY !== 0) {
-      e.preventDefault();
-      container.value.scrollLeft += e.deltaY;
-    }
-  }
-};
+// Horizontal Scroll Logic removed to prevent blocking vertical scroll
+// Users can use Shift+Scroll or Touchpad or Touch to scroll horizontally
 
 onMounted(() => {
-  const el = container.value;
-  if (el) {
-    el.addEventListener('wheel', handleScroll, { passive: false });
-  }
+  // No custom scroll listener needed
 });
 
 onUnmounted(() => {
-  const el = container.value;
-  if (el) {
-    el.removeEventListener('wheel', handleScroll);
-  }
+  // Cleanup
 });
 </script>
 
