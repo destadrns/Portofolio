@@ -3,9 +3,12 @@
     <h2 class="text-4xl font-bold mb-8 text-center text-white z-10">Proyek Pilihan</h2>
     
     <div class="projects-container flex gap-4 md:gap-8 overflow-x-auto no-scrollbar py-4 md:py-8 px-4" ref="container">
-      <div 
+      <a 
         v-for="(project, index) in projects" 
         :key="index"
+        :href="project.link"
+        target="_blank"
+        rel="noopener noreferrer"
         class="project-card min-w-[280px] w-[75vw] md:w-auto md:min-w-[450px] h-auto md:h-[300px] bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 flex flex-col justify-between hover:bg-white/10 transition-all duration-300 group cursor-pointer flex-shrink-0"
       >
         <div>
@@ -22,7 +25,7 @@
              {{ tag }}
            </span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </template>
@@ -33,9 +36,24 @@ import { ref, onMounted, onUnmounted } from 'vue';
 const container = ref(null);
 
 const projects = ref([
-  { title: 'Smart Home Analysis', desc: 'Exploratory Data Analysis dan pemodelan prediktif untuk konsumsi energi rumah tangga.', tags: ['Python', 'Pandas', 'Scikit-learn'] },
-  { title: 'ETH Price Prediction', desc: 'Analisis tren harga Ethereum menggunakan Gradient Boosting dan evaluasi model Machine Learning.', tags: ['Python', 'AI', 'Gradient Boosting'] },
-  { title: 'Rentaliqra App', desc: 'Aplikasi web front-end dengan desain responsif dan interaksi pengguna yang dinamis.', tags: ['HTML', 'CSS', 'JavaScript'] },
+  { 
+    title: 'Smart Home Analysis', 
+    desc: 'Exploratory Data Analysis dan pemodelan prediktif untuk konsumsi energi rumah tangga.', 
+    tags: ['Python', 'Pandas', 'Scikit-learn'],
+    link: 'https://github.com/destadrns/smart-home-energy-consumption-analysis'
+  },
+  { 
+    title: 'ETH Price Prediction', 
+    desc: 'Analisis tren harga Ethereum menggunakan Gradient Boosting dan evaluasi model Machine Learning.', 
+    tags: ['Python', 'AI', 'Gradient Boosting'],
+    link: 'https://github.com/destadrns/ETH-Price-Prediction-Gradient-Boosting'
+  },
+  { 
+    title: 'Rentaliqra App', 
+    desc: 'Aplikasi web front-end dengan desain responsif dan interaksi pengguna yang dinamis.', 
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    link: 'https://github.com/LavinaCaco/rentaliqra'
+  },
 ]);
 
 // Horizontal Scroll Logic
