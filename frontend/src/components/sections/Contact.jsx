@@ -5,28 +5,50 @@ import axios from 'axios'
 
 const Contact = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
-    const [status, setStatus] = useState('idle') // idle, loading, success, error
+    const [status, setStatus] = useState('idle')
+
+    // Captcha State
+    const [captcha, setCaptcha] = useState({
+        num1: Math.floor(Math.random() * 10),
+        num2: Math.floor(Math.random() * 10)
+    })
+    const [userCaptcha, setUserCaptcha] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+
+        // Captcha Verification
+        if (parseInt(userCaptcha) !== captcha.num1 + captcha.num2) {
+            setForm(prev => ({ ...prev, error: 'Hitungan salah, coba lagi!' }))
+            setStatus('error')
+            // Reset error msg after 2s
+            setTimeout(() => setStatus('idle'), 2000)
+            return
+        }
+
         setStatus('loading')
         try {
-            // In a real scenario, this would point to the backend
-            await axios.post('http://localhost:5000/api/contact', form)
+            // Use relative path for production (Vercel), localhost for dev
+            const apiUrl = import.meta.env.PROD
+                ? '/api/contact'
+                : 'http://localhost:5000/api/contact'
 
-            // Simulating network request
-            // await new Promise(resolve => setTimeout(resolve, 1500))
+            await axios.post(apiUrl, form)
 
             setStatus('success')
             setForm({ name: '', email: '', message: '' })
+            setUserCaptcha('')
+            // Regenerate Captcha
+            setCaptcha({
+                num1: Math.floor(Math.random() * 10),
+                num2: Math.floor(Math.random() * 10)
+            })
+
             setTimeout(() => setStatus('idle'), 3000)
         } catch (err) {
             console.error('Contact Form Error:', err);
             const errorMessage = err.response?.data?.message || err.message || 'Gagal mengirim pesan';
             setStatus('error');
-            // Store error in a ref or state if you want to show it. For now, let's just log it to alert/console or update the button text temporarily with state.
-            // Let's modify the status check in the button to show the error message via a temporary state or just alert it.
-            // Better: update the error state to hold the message.
             setForm(prev => ({ ...prev, error: errorMessage }));
         }
     }
@@ -74,6 +96,24 @@ const Contact = () => {
                     />
                 </div>
 
+                {/* Verification */}
+                <div className="flex flex-col gap-2">
+                    <label className="text-sm font-medium text-gray-400">Verifikasi (Bukan Robot)</label>
+                    <div className="flex items-center gap-4">
+                        <span className="text-white font-bold text-lg bg-white/10 px-4 py-2 rounded-lg select-none">
+                            {captcha.num1} + {captcha.num2} = ?
+                        </span>
+                        <input
+                            type="number"
+                            required
+                            className="bg-white/5 border border-white/10 rounded-lg p-3 text-white focus:outline-none focus:border-primary transition-colors w-24 text-center"
+                            placeholder="Hasil"
+                            value={userCaptcha}
+                            onChange={(e) => setUserCaptcha(e.target.value)}
+                        />
+                    </div>
+                </div>
+
                 <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
@@ -84,7 +124,6 @@ const Contact = () => {
                 >
                     {status === 'idle' && <><Send size={18} /> Kirim Pesan</>}
                     {status === 'loading' && <span className="animate-pulse">Mengirim...</span>}
-                    {status === 'success' && <><CheckCircle size={18} /> Pesan Terkirim!</>}
                     {status === 'success' && <><CheckCircle size={18} /> Pesan Terkirim!</>}
                     {status === 'error' && <><AlertCircle size={18} /> {form.error || 'Gagal. Coba Lagi.'}</>}
                 </button>
