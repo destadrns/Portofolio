@@ -2,14 +2,14 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 const skills = [
-    { name: 'React', level: 95, category: 'Frontend' },
-    { name: 'Vue.js', level: 90, category: 'Frontend' },
-    { name: 'Node.js', level: 85, category: 'Backend' },
-    { name: 'MongoDB', level: 80, category: 'Database' },
-    { name: 'TypeScript', level: 90, category: 'Language' },
-    { name: 'Framer Motion', level: 95, category: 'Animation' },
-    { name: 'TailwindCSS', level: 100, category: 'Styling' },
-    { name: 'Three.js', level: 70, category: '3D' },
+    { name: 'Python', level: 90, category: 'Language' },
+    { name: 'Data Analytics', level: 85, category: 'Data Science' },
+    { name: 'Machine Learning', level: 80, category: 'AI' },
+    { name: 'React', level: 85, category: 'Frontend' },
+    { name: 'Vue.js', level: 80, category: 'Frontend' },
+    { name: 'Node.js', level: 75, category: 'Backend' },
+    { name: 'TailwindCSS', level: 90, category: 'Styling' },
+    { name: 'JavaScript', level: 85, category: 'Language' },
 ]
 
 const Skills = () => {
