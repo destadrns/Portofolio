@@ -21,8 +21,8 @@ const education = [
 
 const Education = () => {
     return (
-        <div className="w-full max-w-4xl px-4 py-4">
-            <h2 className="text-4xl font-bold mb-12 text-center">Pendidikan </h2>
+        <div className="w-full max-w-4xl px-4 py-8 md:py-0">
+            <h2 className="text-4xl font-bold mb-8 md:mb-12 text-center">Pendidikan </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
                 {education.map((item, index) => (
