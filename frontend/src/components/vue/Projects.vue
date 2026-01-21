@@ -2,7 +2,7 @@
   <div class="h-full w-full flex flex-col justify-center px-8 relative overflow-hidden">
     <h2 class="text-4xl font-bold mb-8 text-center text-white z-10">Proyek Pilihan</h2>
     
-    <div class="projects-container flex gap-4 md:gap-8 overflow-x-auto py-4 md:py-8 px-4 w-full">
+    <div class="projects-container flex gap-4 md:gap-8 overflow-x-auto py-4 md:py-8 px-4 w-full" ref="container">
       <a 
         v-for="(project, index) in projects" 
         :key="index"
@@ -31,7 +31,10 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const container = ref(null);
+
 const projects = ref([
   { 
     title: 'Smart Home Analysis', 
@@ -53,12 +56,36 @@ const projects = ref([
   },
 ]);
 
-// Horizontal Scroll Logic
-// Horizontal Scroll Logic removed to prevent blocking vertical scroll
-// Users can use Shift+Scroll or Touchpad or Touch to scroll horizontally
+// Smart Horizontal Scroll
+const handleScroll = (e) => {
+  const el = container.value;
+  if (!el) return;
 
-// Horizontal Scroll Logic removed to prevent blocking vertical scroll
-// Users can use Shift+Scroll or Touchpad or Touch to scroll horizontally
+  const isScrollingDown = e.deltaY > 0;
+  const isAtEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 10; // -10 tolerance
+  const isAtStart = el.scrollLeft <= 0;
+
+  // Only hijack scroll if we CAN scroll in the requested direction
+  if ((isScrollingDown && !isAtEnd) || (!isScrollingDown && !isAtStart)) {
+    e.preventDefault();
+    el.scrollLeft += e.deltaY;
+  }
+  // Otherwise, let the event bubble up to native vertical scroll
+};
+
+onMounted(() => {
+  const el = container.value;
+  if (el) {
+    el.addEventListener('wheel', handleScroll, { passive: false });
+  }
+});
+
+onUnmounted(() => {
+  const el = container.value;
+  if (el) {
+    el.removeEventListener('wheel', handleScroll);
+  }
+});
 </script>
 
 <style scoped>
