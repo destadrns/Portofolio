@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { GraduationCap, Award } from 'lucide-react'
+import { GraduationCap } from 'lucide-react'
 
 const education = [
     {
@@ -9,27 +9,13 @@ const education = [
         institution: 'Universitas Amikom Yogyakarta',
         year: '2023 - Sekarang',
         icon: <GraduationCap size={24} />
-    },
-    {
-        type: 'Certification',
-        title: 'AWS Certified Solutions Architect',
-        institution: 'Amazon Web Services',
-        year: '2022',
-        icon: <Award size={24} />
-    },
-    {
-        type: 'Certification',
-        title: 'Google UX Design Professional Certificate',
-        institution: 'Coursera',
-        year: '2021',
-        icon: <Award size={24} />
     }
 ]
 
 const Education = () => {
     return (
         <div className="w-full max-w-4xl px-4 py-4">
-            <h2 className="text-4xl font-bold mb-12 text-center">Pendidikan & Sertifikasi</h2>
+            <h2 className="text-4xl font-bold mb-12 text-center">Pendidikan </h2>
 
             <div className="grid md:grid-cols-2 gap-8">
                 {education.map((item, index) => (
