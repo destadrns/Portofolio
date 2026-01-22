@@ -19,12 +19,12 @@ const Skills = () => {
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-4xl font-bold mb-12 text-center"
+                className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center"
             >
                 Keahlian Teknis
             </motion.h2>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full">
                 {skills.map((skill, index) => (
                     <motion.div
                         key={index}
@@ -32,10 +32,10 @@ const Skills = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ delay: index * 0.1, duration: 0.3 }}
                         whileHover={{ y: -10, transition: { duration: 0.2 } }}
-                        className="bg-white/5 border border-white/10 p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:border-primary/50 transition-colors"
+                        className="bg-white/5 border border-white/10 p-4 md:p-6 rounded-xl backdrop-blur-sm hover:bg-white/10 hover:border-primary/50 transition-colors"
                     >
-                        <h3 className="text-xl font-bold mb-2 text-cyan-300">{skill.name}</h3>
-                        <p className="text-sm text-gray-500 mb-4">{skill.category}</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-2 text-cyan-300">{skill.name}</h3>
+                        <p className="text-sm text-gray-500 mb-3 md:mb-4">{skill.category}</p>
                         <div className="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
                             <motion.div
                                 className="bg-primary h-full rounded-full"
